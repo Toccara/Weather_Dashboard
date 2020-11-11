@@ -21,7 +21,7 @@ $(document).ready(function () {
     $.ajax({
       type: "GET",
       //API Key
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${searchField}&appid=6815ddd879e7fbc993d502b88e3c7195&units=imperial`,
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchField}&appid=6815ddd879e7fbc993d502b88e3c7195&units=imperial`,
       dataType: "json",
       success: function (data) {
         // create history link for this search
@@ -42,7 +42,7 @@ $(document).ready(function () {
         let humid = $("<p>").addClass("card-text").text(`Humidity: ${data.main.humidity}%`);
         let wind = $("<p>").addClass("card-text").text(`Wind Speed: ${data.wind.speed}MPH`);
         let cardBody = $("<div>").addClass("card-body");
-        let img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+        let img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
 
         // merge to page
         title.append(img);
@@ -60,7 +60,7 @@ $(document).ready(function () {
   function getForecast(searchField) {
     $.ajax({
       type: "GET",
-      url: `http://api.openweathermap.org/data/2.5/forecast?q=${searchField}&appid=6815ddd879e7fbc993d502b88e3c7195&units=imperial`,
+      url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchField}&appid=6815ddd879e7fbc993d502b88e3c7195&units=imperial`,
       dataType: "json",
       success: function (data) {
         //empty row
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
             let title = $("<h5>").addClass("card-title").text(new Date(data.list[i].dt_txt).toLocaleDateString());
 
-            let img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
+            let img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
 
             let p1 = $("<p>").addClass("card-text").text(`Temp: ${data.list[i].main.temp_max}°F`);
 
